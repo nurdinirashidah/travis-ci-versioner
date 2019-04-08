@@ -1,4 +1,5 @@
-#travis-ci-versioner
+# travis-ci-versioner
+
 This is a gradle plugin which generates a version number using the Travis CI build number.
 
 ### Usage for modern gradle versions _(>= 2.1)_
