@@ -29,8 +29,6 @@ Total time: 1.769 secs
 
 ### Configuration
 
-#### version >= 0.2.0
-
 It is possible to configure the plugin inside the `build.gradle`.
 
 ~~~~

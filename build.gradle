@@ -1,12 +1,14 @@
 plugins {
     id 'java-gradle-plugin'
+    id 'maven-publish'
     id "com.gradle.plugin-publish" version "0.10.1"
 }
 
-group 'com.bnc'
-version '1.0.0'
+group 'com.bnc.gradle'
+version '1.0.1'
 
-sourceCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
 
 repositories {
     mavenCentral()
@@ -35,6 +37,15 @@ pluginBundle {
     website = 'https://github.com/bnc-projects/travis-ci-versioner'
     vcsUrl = 'https://github.com/bnc-projects/travis-ci-versioner'
     tags = ['version', 'travisci', 'versioning', 'build-versioning', 'auto-versioning']
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = group
+            artifactId = 'travis-ci-versioner'
+        }
+    }
 }
 
 dependencies {

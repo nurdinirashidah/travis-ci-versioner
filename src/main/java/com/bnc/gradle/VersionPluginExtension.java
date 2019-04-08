@@ -28,6 +28,26 @@ public class VersionPluginExtension {
     this.ciEnvironmentVariable = ciEnvironmentVariable;
   }
 
+  public int getMajor() {
+    return major;
+  }
+
+  public int getMinor() {
+    return minor;
+  }
+
+  public String getQualifiedBranch() {
+    return qualifiedBranch;
+  }
+
+  public String getCiEnvironmentVariable() {
+    return ciEnvironmentVariable;
+  }
+
+  public String getPostfix() {
+    return postfix;
+  }
+
   @Override
   public String toString() {
     String version = String.format("%s.%s", major, minor);

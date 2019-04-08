@@ -8,7 +8,7 @@ public class VersionPlugin implements Plugin<Project> {
 
   @Override
   public void apply(Project project) {
-    project.getExtensions().create("travis-versioner", VersionPluginExtension.class);
+    project.getExtensions().create("travisVersioner", VersionPluginExtension.class);
     project.getTasks().create("version", VersionTask.class);
 
     project.afterEvaluate(new Action<Project>() {

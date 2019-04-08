@@ -2,7 +2,6 @@ package com.bnc.gradle;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,17 +14,9 @@ public class VersionPluginExtensionTest {
     versionPluginExtension = new VersionPluginExtension();
   }
 
-  @AfterEach
-  private void teardown() {
-    System.setProperty("CI", "");
-    System.setProperty("TRAVIS_PULL_REQUEST", "");
-    System.setProperty("TRAVIS_BUILD_NUMBER", "");
-  }
-
   @Test
   void testDefaultVersion() {
     assertThat(versionPluginExtension.toString()).isEqualTo("0.0-SNAPSHOT");
-
   }
 
   @Test
