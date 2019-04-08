@@ -1,0 +1,44 @@
+plugins {
+    id 'java-gradle-plugin'
+    id "com.gradle.plugin-publish" version "0.10.1"
+}
+
+group 'com.bnc'
+version '1.0.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
+
+gradlePlugin {
+    plugins {
+        travisCiVersioner {
+            id = 'com.bnc.gradle.travis-ci-versioner'
+            displayName = 'Travis CI Versioner Plugin'
+            description = 'Uses the Travis CI build number to create the patch version number when running in CI. The major and minor versions are controlled manually.'
+            implementationClass = 'com.bnc.gradle.VersionPlugin'
+        }
+    }
+}
+
+pluginBundle {
+    website = 'https://github.com/bnc-projects/travis-ci-versioner'
+    vcsUrl = 'https://github.com/bnc-projects/travis-ci-versioner'
+    tags = ['version', 'travisci', 'versioning', 'build-versioning', 'auto-versioning']
+}
+
+dependencies {
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.4.1'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.12.2'
+    testRuntime group: 'org.junit.platform', name: 'junit-platform-launcher', version: '1.4.1'
+}
