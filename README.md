@@ -5,7 +5,7 @@ This is a gradle plugin which generates a version number using the Travis CI bui
 ### Usage for modern gradle versions _(>= 2.1)_
 ```
 plugins {
-  id "com.bnc.gradle.travis-ci-versioner" version "1.0.0"
+  id "com.bnc.gradle.travis-ci-versioner" version "1.0.1"
 }
 ```
 
@@ -49,18 +49,21 @@ If you do not provide such a configuration (or fill only partial configuration) 
 - _ciEnvironmentVariable_: `'CI'`
 - _postfix_: `'SNAPSHOT'`
 
-## Local build & sample test project
+### Release ###
 
-- `$ ./gradlew install version` will install the current version inside the local maven repository and will print the published version
-- minimal test project `build.gradle` file
-  ````gradle
-  buildscript {
-    repositories {
-    mavenLocal()
-    }
-    dependencies {
-      classpath "com.bnc.gradle.travis-ci-versioner:1.0.0"
-    }
-  }
-  apply plugin: 'com.bnc.gradle.travis-ci-versioner'
-  ````
+Versions are stored as annotated tags in git. [Semantic versioning](http://semver.org) is used.
+
+To create a new release, e.g. 1.2.3:
+
+    git tag -a 1.2.3 -m "New release"
+    git push --tags
+
+If changes are made after version 1.2.3 then the version number be '1.3.0-SNAPSHOT' (default a minor change).
+
+To upload the plugin to the Gradle Plugin Portal, run:
+
+    gradle clean build publishPlugins
+
+Note that credentials are required for uploads. They should be placed in e.g. your
+~/.gradle/gradle.properties for `uploadArchives`.
+See [gradle.properties](gradle.properties) for more information.
