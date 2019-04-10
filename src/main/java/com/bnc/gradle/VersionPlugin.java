@@ -7,8 +7,11 @@ public class VersionPlugin implements Plugin<Project> {
 
   @Override
   public void apply(Project project) {
-    project.getTasks().create("showVersion", VersionTask.class);
+    VersionTask versionTask = project.getTasks().create("showVersion", VersionTask.class);
+    versionTask.setGroup("Help");
+    versionTask.setDescription("Show the project version");
+
     VersionPluginExtension versionConfiguration = project.getExtensions().create("travisVersioner", VersionPluginExtension.class);
-    project.getAllprojects().forEach(subProject -> project.setVersion(versionConfiguration.toString()));
+    project.afterEvaluate(p -> p.getAllprojects().forEach(subProject -> subProject.setVersion(versionConfiguration.toString())));
   }
 }

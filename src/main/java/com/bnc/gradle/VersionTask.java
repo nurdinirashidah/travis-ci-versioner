@@ -6,7 +6,7 @@ import org.gradle.api.tasks.TaskAction;
 public class VersionTask extends DefaultTask {
 
   @TaskAction
-  public void version() {
+  public void showVersion() {
     System.out.println(String.format("Version: %s", getProject().getVersion()));
   }
 }
