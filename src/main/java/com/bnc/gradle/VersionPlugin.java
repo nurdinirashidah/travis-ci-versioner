@@ -12,6 +12,6 @@ public class VersionPlugin implements Plugin<Project> {
     versionTask.setDescription("Show the project version");
 
     VersionPluginExtension versionConfiguration = project.getExtensions().create("travisVersioner", VersionPluginExtension.class);
-    project.afterEvaluate(p -> p.getAllprojects().forEach(subProject -> subProject.setVersion(versionConfiguration.toString())));
+    project.getAllprojects().forEach(subProject -> subProject.setVersion(versionConfiguration.toString()));
   }
 }
