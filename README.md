@@ -32,7 +32,7 @@ Total time: 1.769 secs
 It is possible to configure the plugin inside the `build.gradle`.
 
 ~~~~
-travis-versioner {
+travisVersioner {
   major integer
   minor integer
   qualifiedBranch string (the release branch, it is expected only a single branch is used for releasing)
