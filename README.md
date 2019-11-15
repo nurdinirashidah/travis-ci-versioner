@@ -5,7 +5,7 @@ This is a gradle plugin which generates a version number using the Travis CI bui
 ### Usage for modern gradle versions _(>= 2.1)_
 ```
 plugins {
-  id "com.bnc.gradle.travis-ci-versioner" version "1.0.1"
+  id "com.bnc.gradle.travis-ci-versioner" version "1.1.0"
 }
 ```
 
@@ -49,7 +49,7 @@ If you do not provide such a configuration (or fill only partial configuration) 
 - _ciEnvironmentVariable_: `'CI'`
 - _postfix_: `'SNAPSHOT'`
 
-### Release ###
+### Releasing this plugin ###
 
 Versions are stored as annotated tags in git. [Semantic versioning](http://semver.org) is used.
 
