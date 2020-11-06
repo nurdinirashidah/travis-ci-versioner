@@ -2,3 +2,6 @@ language: java
 jdk:
   - openjdk13
 dist: bionic
+
+after_success:
+- bash <(curl -s https://scripts.scantist.com/ci-travis.sh)
